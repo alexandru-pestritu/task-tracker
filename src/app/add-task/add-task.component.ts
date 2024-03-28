@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TaskService } from '../Services/task.service';
+import { Status } from '../status';
 
 @Component({
   selector: 'app-add-task',
@@ -12,8 +14,9 @@ import { Router } from '@angular/router';
 export class AddTaskComponent {
   taskName: string = '';
   taskDescription: string = '';
+  
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private taskService:TaskService) {}
 
   onSubmit() {
     console.log('Task Title:', this.taskName);
@@ -22,5 +25,15 @@ export class AddTaskComponent {
 
   cancel() {
     this.router.navigate(['/']); 
+  }
+
+  addTask() {
+    this.taskService.addTask({
+      id: (this.taskService.tasks.length + 1).toString(),
+      title: this.taskName,
+      description: this.taskDescription,
+      status: Status.ToDo,
+    });
+    this.router.navigate(['/']);
   }
 }

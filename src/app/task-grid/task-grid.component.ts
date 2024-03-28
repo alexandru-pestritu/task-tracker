@@ -4,6 +4,7 @@ import { Task } from '../task';
 import { Input } from '@angular/core';
 import { NgFor, CommonModule } from '@angular/common';
 import { TaskCardComponent } from '../task-card/task-card.component';
+import { TaskService } from '../Services/task.service';
 
 
 @Component({
@@ -14,5 +15,18 @@ import { TaskCardComponent } from '../task-card/task-card.component';
   styleUrl: './task-grid.component.scss'
 })
 export class TaskGridComponent {
-  @Input() tasks: Task[];
+  tasks: Task[];
+
+  constructor(
+    private taskService: TaskService,
+  ) {}
+  
+  ngOnInit(): void {
+    this.tasks = this.taskService.getTasks();
+  }
+
+  deleteTask(task: Task): void {
+    this.taskService.deleteTask(task.id);
+    this.tasks = this.taskService.getTasks();
+  }
 }

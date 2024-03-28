@@ -5,19 +5,24 @@ import { NgFor, CommonModule } from '@angular/common';
 import { FilterComponent } from '../filter/filter.component';
 import { Status } from '../status';
 import {MatIconModule} from '@angular/material/icon';
+import { TaskService } from '../Services/task.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
+
 
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [NgFor,CommonModule,FilterComponent,MatIconModule],
+  imports: [NgFor,CommonModule,FilterComponent,MatIconModule, EditTaskComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent {
-  @Input() tasks: Task[];
+  tasks: Task[];
   filteredTasks: Task[];
 
   ngOnInit(): void {
+    this.tasks = this.taskService.getTasks();
     this.filteredTasks = this.tasks;
   }
 
@@ -25,12 +30,26 @@ export class TaskListComponent {
     this.filteredTasks = this.tasks.filter((task) => task.status === status);
  }
 
- editTask(task) {
-   console.log('Editing task', task);
+ editTask(task: Task): void {
+  const dialogRef = this.dialog.open(EditTaskComponent, {
+     data: task,
+   });
+
+   dialogRef.afterClosed().subscribe((result) => {
+     console.log('The dialog was closed');
+     this.taskService.editTask(task);
+   });
  }
 
-  deleteTask(task) {
-    this.tasks.splice(this.tasks.indexOf(task), 1);
-  }
+
+ deleteTask(task: Task): void {
+  this.taskService.deleteTask(task.id);
+  this.tasks = this.taskService.getTasks();
+}
+
+  constructor(
+    private taskService: TaskService, private dialog: MatDialog
+  ) {}
+
  
 }
