@@ -3,13 +3,15 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TaskService } from '../Services/task.service';
 import { Status } from '../status';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './add-task.component.html',
-  styleUrl: './add-task.component.scss'
+  styleUrl: './add-task.component.scss',
+  providers: [TaskService]
 })
 export class AddTaskComponent {
   taskName: string = '';
@@ -19,21 +21,30 @@ export class AddTaskComponent {
   constructor(private router: Router, private taskService:TaskService) {}
 
   onSubmit() {
-    console.log('Task Title:', this.taskName);
-    console.log('Description:', this.taskDescription);
+    // Asigură-te că taskName și taskDescription nu sunt goale
+    if (this.taskName && this.taskDescription) {
+      const newTask = <Task>{
+        // Verifică dacă aceste proprietăți se potrivesc cu interfața Task din serviciul tău
+        name: this.taskName, // Presupunând că Task are o proprietate 'title' în loc de 'name'
+        description: this.taskDescription,
+        assignedTo: 'Me',
+        status: Status.ToDo
+      };
+      this.taskService.addTask(newTask)
+        .subscribe({
+          next: (task) => {
+            console.log('Task added successfully:', task);
+            this.router.navigate(['/']);
+          },
+          error: (error) => {
+            console.error('Failed to add task:', error);
+          }
+        });
+    }
   }
 
   cancel() {
-    this.router.navigate(['/']); 
-  }
-
-  addTask() {
-    this.taskService.addTask({
-      id: (this.taskService.tasks.length + 1).toString(),
-      title: this.taskName,
-      description: this.taskDescription,
-      status: Status.ToDo,
-    });
     this.router.navigate(['/']);
   }
+  
 }
