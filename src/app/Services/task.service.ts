@@ -1,46 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../task';
 import { Status } from '../status';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  tasks: Task[] = [
-    {
-      id: '1',
-      title: 'Learn about HTML and SCSS',
-      description: 'Learn the basics concepts about HTML and CSS+SCSS',
-      status: Status.InProgress,
-    },
-    {
-      id: '2',
-      title: 'Create your first Angular app',
-      description: 'Create a new Angular application for managing tasks. You will configure the packages needed for developing the project and then you will define the main components of the application.',
-      status: Status.ToDo,
-    }
-  ];
-
-  getTasks() {
-    return this.tasks;
-  }
-  addTask(newTask: Task) {
-    this.tasks.push(newTask);
-    return newTask;
-  }
-
-  editTask(task: Task): void {
-    let i = this.tasks.findIndex((t) => t.id === task.id);
-    this.tasks[i] = task;
-  }
-
-  deleteTask(id: string): void {
-    const index = this.tasks.findIndex((task) => task.id === id);
-    if (index !== -1) { 
-      this.tasks.splice(index, 1);
-    }
-  }
   
 
-  constructor() { }
+  private baseURL = "https://tasksapi20240226164535.azurewebsites.net/api/Tasks";
+
+  readonly httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
+
+  constructor(private httpClient: HttpClient) { }
+
+  getTasks(): Observable<Task[]> {
+    return this.httpClient.get<Task[]>(this.baseURL, this.httpOptions);
+  }
+
+  addTask(newTask: Task) {
+    return this.httpClient.post<Task>(this.baseURL, newTask, { headers: this.httpOptions.headers, responseType: 'text' as 'json' });
+  }
+
+
+  editTask(task: Task) {
+    return this.httpClient.put<Task>(`${this.baseURL}/${task.id}`, task);
+  }
+    
+
+  deleteTask(taskId: string) {
+    return this.httpClient.delete<void>(`${this.baseURL}/${taskId}`,{ headers: this.httpOptions.headers, responseType: 'text' as 'json' });
+  }
+
 }
