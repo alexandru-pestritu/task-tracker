@@ -15,24 +15,5 @@ import { NgFor,NgIf } from '@angular/common';
 })
 export class TasksViewComponent {
     isList;
-    tasks: Task[] = [
-    {
-        id: '1',
-        title: 'Task 1',
-        description: 'This is a task',
-        status: Status.InProgress,
-    },
-    {
-        id: '2',
-        title: 'Task 2',
-        description: 'This is another task',
-        status: Status.ToDo,
-    },
-    {
-        id: '3',
-        title: 'Task 3',
-        description: 'This is a third task',
-        status: Status.Done,
-    }
-];
+    tasks: Task[] = [];
 }
