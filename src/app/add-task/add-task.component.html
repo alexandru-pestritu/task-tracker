@@ -16,8 +16,15 @@
       class="form-control"
       rows="4"
       required></textarea>
+      <label for="taskAssignedTo">Assigned To</label>
+      <input
+      type="text"
+      id="taskAssignedTo"
+      name="taskAssignedTo"
+      [(ngModel)]="taskAssignedTo"
+      class="form-control"
+      required />
   </div>
-  <!-- Am eliminat (click)="addTask()" de pe butonul de submit pentru a folosi ngSubmit din form -->
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Add Task</button>
   <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
 </form>

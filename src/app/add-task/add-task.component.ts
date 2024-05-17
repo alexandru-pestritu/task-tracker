@@ -5,11 +5,12 @@ import { TaskService } from '../Services/task.service';
 import { Status } from '../status';
 import { Task } from '../task';
 import { NotificationService } from '../notification.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',
   providers: [TaskService]
@@ -17,16 +18,17 @@ import { NotificationService } from '../notification.service';
 export class AddTaskComponent {
   taskName: string = '';
   taskDescription: string = '';
+  taskAssignedTo: string = '';
   
 
   constructor(private router: Router, private taskService:TaskService, private notificationService:NotificationService) {}
 
   onSubmit() {
-    if (this.taskName && this.taskDescription) {
+    if (this.taskName && this.taskDescription && this.taskAssignedTo) {
       const newTask = <Task>{
         name: this.taskName,
         description: this.taskDescription,
-        assignedTo: 'Me',
+        assignedTo: this.taskAssignedTo,
         status: Status.ToDo
       };
       this.taskService.addTask(newTask)
