@@ -2,3 +2,86 @@
 {
     margin-right: 10px;
 }
+
+.mat-mdc-card {
+    border-radius: 10px;
+    background-color: #e0e4ea;
+    box-shadow: none;
+    margin: 15px 0;
+}
+
+.mat-mdc-card p {
+    margin: 2px 0;
+    font-size: 15px;
+}
+
+.mat-mdc-card-header {
+    margin-bottom: 5px;
+}
+
+.mdc-card__actions {
+    padding: 0;
+}
+
+.left-text {
+    color:grey;
+    font-weight: 500;
+}
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:-6px;
+  }
+  
+  .task-details {
+    flex: 1;
+  }
+  
+  .task-actions {
+    display: flex;
+    align-items: center;
+    margin:0px;
+  }
+  
+  .action-buttons button {
+    margin-left: 3px; 
+    margin-right: 3px;
+  }
+
+  .edit-button {
+    background-color: #f2b84c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .edit-button:hover{
+    background-color:#c2933d;
+  }
+
+  .delete-button {
+    background-color: #cb5851;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .delete-button:hover{
+    background-color: #a24641;
+  }
+
+  .fa-pen {
+    font-size: 18px;
+  }
+
+  .fa-trash {
+    font-size: 18px;
+  }

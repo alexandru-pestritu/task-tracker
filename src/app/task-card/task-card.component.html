@@ -4,19 +4,24 @@
           <mat-card-title>{{ task.name }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-        <p>Id: {{task.id}}</p>
-          <p>Description: {{ task.description }}</p>
-          <p>Status: {{ task.status }}</p>
-          <p>Assigned To: {{ task.assignedTo }}</p>
+        <p><span class="left-text">Id:</span> {{task.id}}</p>
+          <p><span class="left-text">Description:</span> {{ task.description }}</p>
+          <div class="task-container">
+            <div class="task-details">
+              <p><span class="left-text">Status:</span> {{ task.status }}</p>
+              <p><span class="left-text">Assigned To:</span> {{ task.assignedTo }}</p>
+            </div>
+            <div class="task-actions">
+              <mat-card-actions class="action-buttons">
+                <button mat-icon-button color="primary" class="edit-button" (click)="editTask(task)">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button mat-icon-button color="warn" class="delete-button" (click)="deleteTask(task.id)">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </mat-card-actions>
+            </div>
+          </div>
         </mat-card-content>
       </mat-card>
-      <mat-card-actions class="action-buttons">
-        <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-icon-button color="primary" (click)="editTask(task)">
-          <mat-icon>edit</mat-icon>
-        </button>
-      </mat-card-actions>
-    
     </div>

@@ -5,5 +5,43 @@
   .task-column {
     flex: 1;
     margin: 10px;
+    background-color: #f5f5f5;
+    padding: 15px 15px 0 15px;
+    border-radius: 10px;
   }
   
+  .task-column h2 {
+    font-size: 24px;
+  }
+
+  .column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .column-header h2 {
+    margin: 0;
+  }
+  
+  .navigation-button {
+    margin-left: auto;
+  }
+  
+.add-task-button {
+    background-color: #41a246;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-task-button:hover{
+  background-color: #348238;
+}
+
+.fa-plus {
+  font-size: 18px;
+}
