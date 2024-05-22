@@ -1,8 +1,7 @@
-<p>
-  {{notificationMessage}}
-</p>
-<br>
-
+<div class="notification-container" *ngIf="notificationMessage">
+  <p class="notification-message">{{ notificationMessage }}</p>
+  <button class="close-button" (click)="closeNotification()">×</button>
+</div>
 <div class="toggle-container">
   <i class="fa-solid fa-table-cells-large"></i>
   <mat-slide-toggle [(ngModel)]="isList" labelPosition="before" class="view-toggle">

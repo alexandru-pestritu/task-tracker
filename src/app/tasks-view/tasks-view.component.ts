@@ -25,7 +25,11 @@ export class TasksViewComponent implements OnInit {
 
     ngOnInit() {
       this.notificationService.notificationSubject.subscribe(hasNotifications => {
-      this.notificationMessage = hasNotifications ? "New notifications, please refresh the page" : "";
+      this.notificationMessage = hasNotifications ? "New updates, please refresh the page!" : "";
     });
+  }
+
+  closeNotification() {
+    this.notificationMessage = '';
   }
 }
