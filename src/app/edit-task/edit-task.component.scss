@@ -2,9 +2,28 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 400px;
+  }
+
+  .mat-mdc-form-field {
+    width: 100%;
   }
   
   #editTaskActions {
     justify-content: end;
   }
   
+
+  .save-button {
+    background-color: #4caf50;
+    color: white !important;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .save-button:hover{
+    background-color: #3d8c40;
+  }
