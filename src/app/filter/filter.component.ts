@@ -1,11 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Status } from '../status';
 import { NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgClass],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss'
 })

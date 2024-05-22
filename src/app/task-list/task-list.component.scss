@@ -1,8 +1,17 @@
+.task-list {
+    padding:1px 15px;
+    background-color: #f5f5f5;
+    margin: 10px;
+    border-radius: 10px;
+    margin-bottom: 25px !important;
+}
+
 .task-item {
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
+    background-color: #e0e4ea;
+    border-radius: 10px;
+    padding: 15px;
+    margin:15px 0;
+
 }
 
 .task-actions button {
@@ -11,18 +20,88 @@
 }
 
 .task-name {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.task-id {
+    margin: 3px 0;
+    font-size: 15px;
 }
 
 .task-description{
-    margin-top:10px;
+    margin: 3px 0;
+    font-size: 15px;
+}
+
+.task-assigned-to{
+    margin: 3px 0;
+    font-size: 15px;
 }
 
 .task-status{
-    margin-top:10px;
+    margin: 3px 0;
+    font-size: 15px;
 }
 
 .task-actions{
-    margin-top:10px;
+    margin-top:5px;
 }
+
+.text-left{
+    color: grey;
+    font-weight: 500;
+}
+
+.edit-button {
+    background-color: #f2b84c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .edit-button:hover{
+    background-color:#c2933d;
+  }
+
+  .delete-button {
+    background-color: #cb5851;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .delete-button:hover{
+    background-color: #a24641;
+  }
+
+  .fa-pen {
+    font-size: 18px;
+  }
+
+  .fa-trash {
+    font-size: 18px;
+  }
+
+  .status-to-do {
+    color: #cb5851;
+    font-weight: 500;
+  }
+  
+  .status-in-progress {
+    color: #c2933d; 
+    font-weight: 500;
+  }
+  
+  .status-done {
+    color: #4caf50; 
+    font-weight: 500;
+  }
+  

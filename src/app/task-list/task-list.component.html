@@ -1,17 +1,25 @@
+<div class="task-list">
 <app-filter (statusSelected)="handleStatusSelected($event)"></app-filter>
 <div *ngFor="let task of filteredTasks" class="task-item">
     <div class="task-name">{{ task.name }}</div>
-    <p>Id: {{task.id}}</p>
-          <p>Description: {{ task.description }}</p>
-          <p>Status: {{ task.status }}</p>
-          <p>Assigned To: {{ task.assignedTo }}</p>
+    <p class="task-id"><span class="text-left">Id:</span> {{task.id}}</p>
+          <p class="task-description"><span class="text-left">Description:</span> {{ task.description }}</p>
+          <p class="task-status">
+            <span class="text-left">Status:</span>
+            <span [ngClass]="{
+              'status-to-do': task.status === 'To do',
+              'status-in-progress': task.status === 'In Progress',
+              'status-done': task.status === 'Done'
+            }"> {{ task.status }}</span>
+          </p>
+          <p class="task-assigned-to"><span class="text-left">Assigned To:</span> {{ task.assignedTo }}</p>
     <div class="task-actions">
-        <button mat-icon-button color="primary" (click)="editTask(task)">
-          <mat-icon>edit</mat-icon>
+        <button mat-icon-button color="primary" class="edit-button" (click)="editTask(task)">
+          <i class="fa-solid fa-pen"></i>
         </button>
-        <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
-          <mat-icon>delete</mat-icon>
+        <button mat-icon-button color="warn" class="delete-button" (click)="deleteTask(task.id)">
+          <i class="fa-solid fa-trash"></i>
         </button>
       </div>
-    
   </div>
+</div>

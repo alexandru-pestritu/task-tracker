@@ -1,15 +1,33 @@
-.buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px; 
-  }
-  
-  .buttons-container div {
-    flex: 1; 
-    display: flex;
-    justify-content: center; 
-  }
+.to-do-button {
+  color: #cb5851;
+}
 
-  .buttons-container div button {
-    padding: 10px 5px 10px 5px;
-  }
+.in-progress-button {
+  color: #f2b84c;
+}
+
+.done-button {
+  color: #4caf50;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; 
+}
+
+.buttons-container div {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  margin-top: 15px;
+}
+
+.buttons-container div button {
+  padding: 10px 5px 10px 5px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}

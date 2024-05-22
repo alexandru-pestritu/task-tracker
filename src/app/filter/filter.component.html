@@ -1,5 +1,13 @@
 <div class="buttons-container">
   <div *ngFor="let status of statuses">
-    <button mat-button (click)="selectStatus(status)">{{ status }}</button>
+    <button mat-button 
+            (click)="selectStatus(status)"
+            [ngClass]="{
+              'to-do-button': status === 'To do',
+              'in-progress-button': status === 'In Progress',
+              'done-button': status === 'Done'
+            }">
+      {{ status }}
+    </button>
   </div>
 </div>

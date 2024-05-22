@@ -6,4 +6,46 @@
 
 .buttons button {
     margin-left: 10px;
+    color:#fff;
+    background-color: #2a4bf7;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.fa-list {
+    font-size: 20px;
+}
+
+.fa-table-cells-large {
+    font-size: 20px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    gap: 0.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .view-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-mdc-slide-toggle.view-toggle {
+    --mdc-switch-selected-handle-color: #2a4bf7;
+    --mdc-switch-selected-pressed-handle-color: #2a4bf7;
+    --mdc-switch-selected-pressed-state-layer-color: #2a4bf7;
+    --mdc-switch-selected-hover-state-layer-color: #2a4bf7;
+    --mdc-switch-selected-hover-handle-color: #2a4bf7;
+    --mdc-switch-selected-focus-state-layer-color: #2a4bf7;
+    --mdc-switch-selected-focus-handle-color: #2a4bf7;
+    --mdc-switch-selected-track-color: #e0e0e0;
+    --mdc-switch-selected-pressed-track-color: #e0e0e0;
+    --mdc-switch-selected-hover-track-color: #e0e0e0;
+    --mdc-switch-selected-focus-track-color: #e0e0e0;
 }

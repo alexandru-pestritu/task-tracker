@@ -6,11 +6,13 @@ import { TaskListComponent } from '../task-list/task-list.component';
 import {MatIconModule} from '@angular/material/icon';
 import { NgFor,NgIf } from '@angular/common';
 import { NotificationService } from '../notification.service';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tasks-view',
   standalone: true,
-  imports: [TaskGridComponent,TaskListComponent,MatIconModule,NgFor,NgIf],
+  imports: [TaskGridComponent,TaskListComponent,MatIconModule,NgFor,NgIf, MatSlideToggleModule, FormsModule],
   templateUrl: './tasks-view.component.html',
   styleUrl: './tasks-view.component.scss'
 })

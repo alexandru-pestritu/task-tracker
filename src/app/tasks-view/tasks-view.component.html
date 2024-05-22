@@ -3,10 +3,12 @@
 </p>
 <br>
 
-<div class="buttons">
-    <button mat-button (click)="isList = true"><mat-icon>list</mat-icon>  </button>
-    <button mat-button (click)="isList = false"><mat-icon>grid_view</mat-icon>  </button>
-  </div>
+<div class="toggle-container">
+  <i class="fa-solid fa-table-cells-large"></i>
+  <mat-slide-toggle [(ngModel)]="isList" labelPosition="before" class="view-toggle">
+  </mat-slide-toggle>
+  <i class="fa-solid fa-list"></i>
+</div>
   <div *ngIf="isList">
     <app-task-list></app-task-list>
   </div>
