@@ -14,7 +14,11 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Status</mat-label>
-    <input matInput [(ngModel)]="data.status" required>
+    <mat-select [(value)]="data.status">
+      <mat-option value="To Do">To Do</mat-option>
+      <mat-option value="In Progress">In Progress</mat-option>
+      <mat-option value="Completed">Completed</mat-option>
+    </mat-select>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions id="editTaskActions">

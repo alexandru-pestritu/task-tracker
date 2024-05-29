@@ -14,12 +14,12 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { Task } from '../task';
 import { Status } from '../status';
-import { MatOption } from '@angular/material/core';
+import { MatOptionModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-edit-task',
   standalone: true,
-  imports: [FormsModule,MatButtonModule,MatFormFieldModule,MatInputModule, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle, MatOption, MatSelectModule],
+  imports: [FormsModule,MatButtonModule,MatFormFieldModule,MatInputModule, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle, MatOptionModule, MatSelectModule],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.scss'
 })
